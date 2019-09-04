@@ -17,6 +17,10 @@ label {
   margin-bottom: 10px;
 }
 
+.input {
+  margin-right: 10px;
+}
+
 .search-results {
   display: flex;
   flex-direction: row;

@@ -50,6 +50,9 @@ export default class Weather extends Component {
     })
   }
 
+  // This function checks if search results are length of 1
+  // If so, it immediately renders the weather!
+
   async checkLength() {
     if(this.state.searchResults.length === 1) {
       let searchResults = this.state.searchResults[0].title
@@ -78,7 +81,7 @@ export default class Weather extends Component {
   async handleSubmit(event) {
     event.preventDefault();
     this.setState({ showSearch: true })
-    console.log('I was clicked', this.state.location);
+
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = `https://www.metaweather.com/api/location/search/?query=${this.state.location}`;
 

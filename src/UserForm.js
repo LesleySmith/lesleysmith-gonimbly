@@ -17,7 +17,7 @@ const UserForm = props => {
         <i aria-hidden='true' class='search circular inverted link icon'></i>
       </div>
 
-      <button class='ui button' type='submit'>Submit</button>
+      <button className='form-button' class='ui primary button' type='submit'>Submit</button>
 
     </form>
     </div>
