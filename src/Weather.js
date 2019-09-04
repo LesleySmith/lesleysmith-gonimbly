@@ -50,6 +50,31 @@ export default class Weather extends Component {
     })
   }
 
+  async checkLength() {
+    if(this.state.searchResults.length === 1) {
+      let searchResults = this.state.searchResults[0].title
+      this.setState({
+         chosenCity: searchResults,
+         showSearch: false,
+        })
+      let woeid = this.state.searchResults[0].woeid;
+
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      const url = `https://www.metaweather.com/api/location/${woeid}/`;
+
+      fetch(proxyurl + url)
+      .then(results => {
+        return results.json();
+      })
+      .then(data => {
+        let weather = data.consolidated_weather;
+        console.log(weather);
+        this.setState({ userWeather: weather })
+        console.log('userWeather', this.state);
+      })
+    }
+  }
+
   async handleSubmit(event) {
     event.preventDefault();
     this.setState({ showSearch: true })
@@ -63,14 +88,13 @@ export default class Weather extends Component {
     })
     .then(data => {
       let search = data
-      this.setState({ searchResults: search });
-      console.log('searchResults', this.state);
+      this.setState({ searchResults: search }, () => {this.checkLength() });
     })
-    .catch(() => console.log('Could not get response'));
+    .catch(() => console.log('Something went wrong!'))
   }
 
   render() {
-    console.log(this.state.location)
+
     let searchResults = this.state.searchResults;
     let userWeather = this.state.userWeather;
     let showSearch = this.state.showSearch;
@@ -79,6 +103,7 @@ export default class Weather extends Component {
     return (
 
       <div className='weather'>
+
         <div className='inputBox'>
           <UserForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} state={this.state} />
         </div>
@@ -90,13 +115,23 @@ export default class Weather extends Component {
         </div>
 
         {showSearch ? (
-          <div className='search-results'>
-          {searchResults.length > 0 &&
-            searchResults.map((city) =>
-            <CityButton key={city.title} state={this.state} woeid={city.woeid} title={city.title} handleClick={this.handleClick} />
-            )
-          }
-        </div>
+
+          <div className='search-box'>
+
+            <div className='search-title'>
+              {searchResults.length > 0 &&
+                <h2>Which city did you mean?</h2>
+              }
+            </div>
+
+            <div className='search-results'>
+              {searchResults.length > 0 &&
+              searchResults.map((city) =>
+              <CityButton key={city.title} state={this.state} woeid={city.woeid} title={city.title} handleClick={this.handleClick} />
+              )
+            }
+            </div>
+          </div>
         ) : (
 
           <div className='weather-display'>

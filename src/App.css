@@ -13,10 +13,25 @@
   color: white;
 }
 
+label {
+  margin-bottom: 10px;
+}
+
 .search-results {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.search-title {
+  padding: 25px;
+  margin: 10px;
+}
+
+.city-button {
+  padding: 15px;
+  margin: 10px;
 }
 
 .weather-display {
@@ -27,16 +42,17 @@
 }
 
 .form {
-  width: 100%;
-  height: 56px;
-  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .weather-card {
   padding: 10px;
   margin: 10px;
   padding: 20px;
-  border: 5px solid blue;
+  border: 2px solid grey;
+  border-radius: 10px;
 }
 
 

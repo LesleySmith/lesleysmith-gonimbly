@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Weather Time!</h1>
+        <p>Look Up Weather In Your City</p>
       </header>
       <Weather />
     </div>
