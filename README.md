@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-##Purpose of the App
+## Purpose of the App
 This app allows a user to input a city and view the weather forecast of that specific city.
 
 ## Available Scripts
