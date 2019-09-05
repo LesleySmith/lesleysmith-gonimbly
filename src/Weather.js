@@ -11,7 +11,8 @@ export default class Weather extends Component {
       searchResults: [],
       userWeather: [],
       showSearch: true,
-      chosenCity: ''
+      chosenCity: '',
+      emptySearch: false,
     };
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -74,13 +75,17 @@ export default class Weather extends Component {
         this.setState({ userWeather: weather })
       })
     } else if(this.state.searchResults.length === 0) {
-
+      this.setState({ emptySearch: true })
     }
   }
 
   async handleSubmit(event) {
     event.preventDefault();
-    this.setState({ showSearch: true })
+    this.setState({
+      showSearch: true,
+      emptySearch: false,
+      chosenCity: '',
+     })
 
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = `https://www.metaweather.com/api/location/search/?query=${this.state.location}`;
@@ -102,6 +107,7 @@ export default class Weather extends Component {
     let userWeather = this.state.userWeather;
     let showSearch = this.state.showSearch;
     let chosenCity = this.state.chosenCity;
+    let emptySearch = this.state.emptySearch;
 
     return (
 
@@ -109,6 +115,12 @@ export default class Weather extends Component {
 
         <div className='inputBox'>
           <UserForm handleSubmit={this.handleSubmit} handleChange={this.handleChange} state={this.state} />
+        </div>
+
+        <div className='error-message'>
+          {emptySearch &&
+            <h1>No City Was Found, Try Again!</h1>
+          }
         </div>
 
         <div className='city-title'>

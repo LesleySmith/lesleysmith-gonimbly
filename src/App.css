@@ -36,11 +36,15 @@ label {
 .city-button {
   padding: 15px;
   margin: 10px;
+  width: 70%;
+  margin: auto;
 }
 
 .ui.primary.button.design {
   width: 70%;
   font-size: 1.5rem;
+  display: block;
+  width: 100%;
 }
 
 .weather-display {
@@ -63,8 +67,6 @@ label {
   border: 2px solid grey;
   border-radius: 10px;
 }
-
-
 
 .App-link {
   color: #61dafb;
