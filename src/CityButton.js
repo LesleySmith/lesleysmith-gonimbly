@@ -3,8 +3,7 @@ import React from 'react';
 const CityButton = props => {
   return (
     <div className='city-button'>
-      <h2>{props.title}</h2>
-      <button class='ui primary button' onClick={((event) => props.handleClick(event, props))} value={props.woeid}>Submit</button>
+      <button className='button-design' class='ui primary button design' onClick={((event) => props.handleClick(event, props))} value={props.woeid}>{props.title}</button>
     </div>
   )
 }

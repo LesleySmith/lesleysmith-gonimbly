@@ -73,6 +73,8 @@ export default class Weather extends Component {
         let weather = data.consolidated_weather;
         this.setState({ userWeather: weather })
       })
+    } else if(this.state.searchResults.length === 0) {
+
     }
   }
 

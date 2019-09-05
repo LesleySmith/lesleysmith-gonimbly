@@ -12,9 +12,9 @@ const UserForm = props => {
         </div>
       </label>
 
-      <div class='ui icon input'>
+      <div class='ui focus input'>
         <input type='text' placeholder='Search for a city...' name='location' value={props.state.location} onChange={props.handleChange}></input>
-        <i aria-hidden='true' class='search circular inverted link icon'></i>
+
       </div>
 
       <button className='form-button' class='ui primary button' type='submit'>Submit</button>

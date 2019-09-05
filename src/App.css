@@ -23,7 +23,7 @@ label {
 
 .search-results {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
@@ -36,6 +36,11 @@ label {
 .city-button {
   padding: 15px;
   margin: 10px;
+}
+
+.ui.primary.button.design {
+  width: 70%;
+  font-size: 1.5rem;
 }
 
 .weather-display {
