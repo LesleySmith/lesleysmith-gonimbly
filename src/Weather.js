@@ -44,9 +44,7 @@ export default class Weather extends Component {
     })
     .then(data => {
       let weather = data.consolidated_weather;
-      console.log(weather);
       this.setState({ userWeather: weather })
-      console.log('userWeather', this.state);
     })
   }
 
@@ -56,10 +54,12 @@ export default class Weather extends Component {
   async checkLength() {
     if(this.state.searchResults.length === 1) {
       let searchResults = this.state.searchResults[0].title
+
       this.setState({
          chosenCity: searchResults,
          showSearch: false,
         })
+
       let woeid = this.state.searchResults[0].woeid;
 
       const proxyurl = "https://cors-anywhere.herokuapp.com/";
@@ -71,9 +71,7 @@ export default class Weather extends Component {
       })
       .then(data => {
         let weather = data.consolidated_weather;
-        console.log(weather);
         this.setState({ userWeather: weather })
-        console.log('userWeather', this.state);
       })
     }
   }

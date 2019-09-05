@@ -1,9 +1,10 @@
 import React from 'react';
 
 const WeatherCard = props => {
-let baseNum = Math.floor(props.day.the_temp);
-let farenheit = Math.floor((baseNum * (9/5)) + 32);
-let weatherico = props.day.weather_state_abbr;
+
+  let baseNum = Math.floor(props.day.the_temp);
+  let farenheit = Math.floor((baseNum * (9/5)) + 32);
+  let weatherico = props.day.weather_state_abbr;
 
   return (
     <div className='weather-card'>
